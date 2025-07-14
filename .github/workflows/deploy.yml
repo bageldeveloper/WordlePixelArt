@@ -16,8 +16,8 @@ jobs:
       - name: Deploy to bagel-man.github.io/WordlePixelArt
         uses: peaceiris/actions-gh-pages@v3
         with:
-          publish_dir: ./
+          publish_dir: ./    
           external_repository: bageldeveloper/bagel-man.github.io
-          publish_branch: main
+          publish_branch: master
           destination_dir: WordlePixelArt
           personal_token: ${{ secrets.GH_PAT }}
