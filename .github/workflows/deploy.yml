@@ -20,4 +20,4 @@ jobs:
           external_repository: bageldeveloper/bagel-man.github.io
           publish_branch: main
           destination_dir: WordlePixelArt
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GH_PAT }}
