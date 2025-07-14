@@ -1,0 +1,23 @@
+name: Deploy WordlePixelArt to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+
+      - name: Deploy to bagel-man.github.io/WordlePixelArt
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_dir: ./  # change this if your files are in a subfolder
+          external_repository: bageldeveloper/bagel-man.github.io
+          publish_branch: main
+          destination_dir: WordlePixelArt
+          github_token: ${{ secrets.GITHUB_TOKEN }}
