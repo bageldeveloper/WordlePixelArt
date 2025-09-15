@@ -9,7 +9,7 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 
 // Define state variables before any function uses them
 let currentWord = '';
-let grid = Array.from({ length: 5 }, () => Array(5).fill(0));
+let grid = Array.from({ length: 6 }, () => Array(6).fill(0));
 let solutionWords = null;
 
 // Track last animated cell
@@ -109,7 +109,7 @@ function checkSolution() {
   let shouldAnimate = false;
   let anyNoSolution = false;
   const inputLetters = new Set(currentWord.split(''));
-  for (let row = 0; row < 5; row++) {
+  for (let row = 0; row < 6; row++) {
     let found = null;
     const targetPattern = grid[row];
     // Check if all gray
@@ -156,7 +156,7 @@ function checkSolution() {
 
 function renderGrid() {
   gridContainer.innerHTML = '';
-  for (let row = 0; row < 5; row++) {
+  for (let row = 0; row < 6; row++) {
     for (let col = 0; col < 5; col++) {
       const cell = document.createElement('div');
       let state = grid[row][col];
@@ -251,7 +251,7 @@ const originalCheckSolution = checkSolution;
 checkSolution = function() {
   // Find which row(s) changed
   if (solutionWords) {
-    for (let row = 0; row < 5; row++) {
+    for (let row = 0; row < 6; row++) {
       let prev = solutionWords[row];
       // After a word is entered, animate all rows
       if (!prev || prev !== (solutionWords && solutionWords[row])) {
@@ -275,7 +275,7 @@ startBtn.addEventListener('click', () => {
 });
 
 function resetGrid() {
-  grid = Array.from({ length: 5 }, () => Array(5).fill(0));
+  grid = Array.from({ length: 6 }, () => Array(5).fill(0));
   solutionWords = null;
   solutionArea.textContent = '';
 }
